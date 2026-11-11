@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 티가나 로고 기반 자연스러운 색상 팔레트 */
+  --tigana-pink: hsl(342, 45%, 68%);      /* 부드러운 핑크 */
+  --tigana-pink-dark: hsl(342, 50%, 55%); /* 진한 핑크 */
+  --tigana-navy: hsl(211, 45%, 35%);      /* 부드러운 네이비 */
+  --tigana-navy-light: hsl(211, 30%, 50%); /* 밝은 네이비 */
+  --tigana-cream: hsl(30, 20%, 97%);      /* 따뜻한 크림색 */
+  
+  --background: hsl(30, 20%, 97%);
+  --foreground: hsl(211, 45%, 35%);
+  --muted: hsl(30, 15%, 94%);
+  --muted-foreground: hsl(211, 25%, 55%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(211, 45%, 35%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(211, 45%, 35%);
+  --border: hsl(211, 20%, 88%);
+  --input: hsl(211, 15%, 92%);
+  --primary: hsl(342, 45%, 68%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(211, 30%, 50%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(342, 30%, 85%);
+  --accent-foreground: hsl(211, 45%, 35%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(342, 45%, 68%);
+  --radius: 0.75rem;
+  
+  /* 티가나 브랜드 색상 - 자연스러운 톤 */
+  --pink-accent: var(--tigana-pink);
+  --pink-light: hsl(342, 25%, 92%);
+  --pink-coral: var(--tigana-pink-dark);
+  --pink-gradient-start: var(--tigana-pink);
+  --pink-gradient-end: var(--tigana-pink-dark);
+  
+  /* 네이비 색상 */
+  --navy-primary: var(--tigana-navy);
+  --navy-light: var(--tigana-navy-light);
+  --navy-dark: hsl(211, 58%, 18%);
+  
+  /* 중성 색상 */
+  --neutral-bg: var(--tigana-cream);
+  --neutral-surface: hsl(0, 0%, 100%);
+  --neutral-border: hsl(211, 25%, 85%);
+  --neutral-text: var(--tigana-navy);
+  --neutral-text-secondary: hsl(211, 30%, 45%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(342, 92%, 70%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased text-foreground bg-white;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+}
+
+@layer utilities {
+  .pink-gradient {
+    background: linear-gradient(135deg, var(--pink-gradient-start), var(--pink-gradient-end));
+  }
+  
+  .blue-gradient {
+    background: linear-gradient(135deg, var(--blue-primary), var(--blue-dark));
+  }
+  
+  .swipe-card {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+  
+  .swipe-card.swiping-right {
+    transform: translateX(100%) rotate(20deg) !important;
+    opacity: 0 !important;
+  }
+  
+  .swipe-card.swiping-left {
+    transform: translateX(-100%) rotate(-20deg) !important;
+    opacity: 0 !important;
+  }
+  
+  .swipe-card.swiping-up {
+    transform: translateY(-100%) rotate(5deg) !important;
+    opacity: 0 !important;
+  }
+  
+  @keyframes bounce-heart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  
+  .animate-bounce-heart {
+    animation: bounce-heart 0.6s ease-in-out;
+  }
+  
+  @keyframes slide-up {
+    0% { 
+      transform: translateY(100%); 
+      opacity: 0; 
+    }
+    100% { 
+      transform: translateY(0); 
+      opacity: 1; 
+    }
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.4s ease-out;
+  }
+  
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-in;
+  }
+}
+
+/* 채팅 메시지 색상 강제 적용 - 더 구체적인 선택자 */
+div.chat-message-sent,
+.chat-message-sent {
+  background-color: hsl(342, 60%, 85%) !important;
+  background: hsl(342, 60%, 85%) !important;
+  color: hsl(342, 80%, 25%) !important;
+  border: none !important;
+}
+
+div.chat-message-received,
+.chat-message-received {
+  background-color: #f3f4f6 !important;
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+  border: none !important;
+}
+
+button.chat-send-button,
+.chat-send-button {
+  background-color: hsl(342, 45%, 68%) !important;
+  background: hsl(342, 45%, 68%) !important;
+  border-color: hsl(342, 45%, 68%) !important;
+  color: white !important;
+}
+
+/* 더 구체적인 채팅 메시지 타겟팅 */
+[class*="rounded-2xl"][class*="max-w-xs"] {
+  background-color: inherit !important;
+}
+
+/* 특정 색상 클래스 무효화 */
+.bg-yellow-400,
+.bg-yellow-300,
+.bg-yellow-500 {
+  background-color: transparent !important;
+}
+
+/* 내 메시지 스타일 강제 적용 */
+.flex.justify-end .max-w-xs {
+  background-color: hsl(342, 60%, 85%) !important;
+  background: hsl(342, 60%, 85%) !important;
+  color: hsl(342, 80%, 25%) !important;
+}
