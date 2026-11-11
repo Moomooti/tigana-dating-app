@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>티가나 계정 삭제 요청</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e91e63;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .warning-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #f39c12;
+        }
+
+        .warning-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .warning-box ul {
+            color: #856404;
+            margin-left: 20px;
+        }
+
+        .warning-box li {
+            margin-bottom: 8px;
+        }
+
+        .section {
+            margin: 30px 0;
+        }
+
+        h2 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #1976d2;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #424242;
+            margin: 20px 0 15px 0;
+            font-size: 1.2em;
+        }
+
+        .contact-box {
+            background-color: #e8f5e8;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #4caf50;
+        }
+
+        .contact-info strong {
+            color: #2e7d32;
+        }
+
+        .steps {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .steps h3 {
+            color: #1565c0;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .step-number {
+            background-color: #2196f3;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 5px;
+        }
+
+        .timeline-box {
+            background-color: #fff3e0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .timeline-box h3 {
+            color: #e65100;
+            margin-bottom: 15px;
+        }
+
+        .timeline-item {
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ffe0b2;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-time {
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .privacy-link {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .privacy-link a {
+            color: #e91e63;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #e91e63;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .privacy-link a:hover {
+            background-color: #e91e63;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+                border-radius: 5px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 auto 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗑️ 계정 삭제 요청</h1>
+            <p class="subtitle">티가나 계정 및 관련 데이터 삭제를 요청하실 수 있습니다</p>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ 계정 삭제 전 반드시 확인해 주세요</h3>
+            <ul>
+                <li><strong>모든 개인정보가 영구적으로 삭제됩니다</strong> (프로필, 매칭 기록, 채팅 내용 등)</li>
+                <li><strong>삭제 후에는 복구가 불가능합니다</strong></li>
+                <li><strong>하트 크레딧 및 기타 앱 내 데이터도 함께 삭제됩니다</strong></li>
+                <li><strong>진행 중인 매칭이나 대화는 상대방에게도 영향을 줄 수 있습니다</strong></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>계정 삭제 요청 방법</h2>
+            
+            <div class="steps">
+                <h3>📋 삭제 요청 절차</h3>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">이메일 발송</div>
+                        <div>아래 연락처로 계정 삭제 요청 이메일을 보내주세요</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">본인 확인 정보 포함</div>
+                        <div>등록된 이메일 주소, 닉네임, 생년월일 등 본인 확인이 가능한 정보를 포함해 주세요</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">삭제 사유 (선택사항)</div>
+                        <div>서비스 개선을 위해 삭제 사유를 알려주시면 감사하겠습니다</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">처리 완료 확인</div>
+                        <div>삭제 처리 완료 후 확인 이메일을 발송해 드립니다</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <h3>📧 계정 삭제 요청 연락처</h3>
+            
+            <div class="contact-info">
+                <p><strong>개인정보 보호책임자</strong></p>
+                <p>허민영 (개발팀장)</p>
+                <p><strong>이메일:</strong> hmy7905@naver.com</p>
+            </div>
+
+            <div class="contact-info">
+                <p><strong>개인정보 보호담당자</strong></p>
+                <p>이성배</p>
+                <p><strong>이메일:</strong> aa3423011@gmail.com</p>
+            </div>
+
+            <div class="contact-info">
+                <p><strong>개인정보 보호담당자</strong></p>
+                <p>하주희</p>
+                <p><strong>이메일:</strong> hajuhee0727@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="timeline-box">
+            <h3>⏰ 처리 시간 안내</h3>
+            
+            <div class="timeline-item">
+                <span class="timeline-time">요청 접수:</span> 즉시 (이메일 발송 시)
+            </div>
+            
+            <div class="timeline-item">
+                <span class="timeline-time">본인 확인:</span> 1-2 영업일
+            </div>
+            
+            <div class="timeline-item">
+                <span class="timeline-time">데이터 삭제:</span> 확인 완료 후 3-5 영업일
+            </div>
+            
+            <div class="timeline-item">
+                <span class="timeline-time">완료 알림:</span> 삭제 완료 후 즉시 이메일 발송
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 이메일 작성 예시</h2>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <p><strong>제목:</strong> [티가나] 계정 삭제 요청</p>
+                <br>
+                <p><strong>내용:</strong></p>
+                <p>안녕하세요.</p>
+                <p>티가나 앱 계정 삭제를 요청드립니다.</p>
+                <br>
+                <p>• 등록 이메일: [본인의 이메일 주소]</p>
+                <p>• 닉네임: [앱에서 사용한 닉네임]</p>
+                <p>• 생년월일: [YYYY-MM-DD]</p>
+                <p>• 삭제 사유: [선택사항]</p>
+                <br>
+                <p>감사합니다.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>❓ 자주 묻는 질문</h2>
+            
+            <h3>Q: 계정 삭제 후 재가입이 가능한가요?</h3>
+            <p>A: 네, 동일한 이메일로 재가입이 가능합니다. 단, 기존 데이터는 복구되지 않습니다.</p>
+            
+            <h3>Q: 일부 데이터만 삭제할 수 있나요?</h3>
+            <p>A: 계정 삭제는 모든 개인정보를 삭제하는 것입니다. 일부 데이터만 삭제하려면 앱 내 설정에서 관리해 주세요.</p>
+            
+            <h3>Q: 삭제 요청을 취소할 수 있나요?</h3>
+            <p>A: 실제 삭제 작업이 시작되기 전까지는 취소가 가능합니다. 즉시 연락해 주세요.</p>
+        </div>
+
+        <div class="privacy-link">
+            <a href="index.html">📋 개인정보 처리방침 보기</a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 티가나(Tigana). All rights reserved.</p>
+            <p>본 페이지는 개인정보보호법에 따라 제공됩니다.</p>
+        </div>
+    </div>
+</body>
+</html>
